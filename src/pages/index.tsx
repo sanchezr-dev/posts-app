@@ -4,11 +4,11 @@ import FetchJson from "@/lib/fetchJson"
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const apiUrl = "https://jsonplaceholder.typicode.com/posts"
   const apiResponse = await FetchJson.get(apiUrl)
-  const token = (context.req as any).session.data.accessToken
+  const token = (context.req as any).session?.data?.accessToken
 
   return {
     props: {
-      token: token,
+      token: token || null,
       postList: (apiResponse as any).slice(0, 20),
     },
   }

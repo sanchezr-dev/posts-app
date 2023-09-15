@@ -6,7 +6,7 @@ const nextConfig = {
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
-        name: "green-app",
+        name: "posts",
         filename: "static/chunks/remoteEntry.js",
         exposes: {
           "./home": "./src/pages/index.tsx",
